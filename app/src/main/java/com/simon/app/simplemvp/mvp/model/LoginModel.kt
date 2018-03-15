@@ -1,13 +1,10 @@
 package com.simon.app.simplemvp.mvp.model
 
-import android.content.Context
-import android.util.Log
-import android.widget.Toast
 import com.simon.app.simplemvp.mvp.bean.UserBean
 import kotlin.concurrent.thread
 
 /**
- * desc:
+ * desc: Login Model
  *
  * auther: xw
  *
@@ -17,7 +14,7 @@ import kotlin.concurrent.thread
  */
 class LoginModel {
 
-    fun login(context: Context, username: String, password: String, onLoginListener: OnLoginListener) {
+    fun login(username: String, password: String, onLoginListener: OnLoginListener) {
         thread {
             Thread.sleep(2000)
             if (username == "simon" && password == "12345678") {

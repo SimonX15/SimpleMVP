@@ -1,6 +1,5 @@
 package com.simon.app.simplemvp.mvp.presenter
 
-import android.content.Context
 import android.os.Handler
 import com.simon.app.simplemvp.mvp.bean.UserBean
 import com.simon.app.simplemvp.mvp.model.LoginModel
@@ -16,7 +15,7 @@ import com.simon.app.simplemvp.mvp.view.ILoginView
  *
  * @auther: xw
  */
-class LoginPresenter(private val context: Context, private val iLoginView: ILoginView) {
+class LoginPresenter(private val iLoginView: ILoginView) {
 
     private val loginModel = LoginModel()
 
@@ -25,12 +24,13 @@ class LoginPresenter(private val context: Context, private val iLoginView: ILogi
     fun login() {
         iLoginView.showLoading()
 
-        loginModel.login(context, iLoginView.getUsername(), iLoginView.getPassword(), object : OnLoginListener {
+        loginModel.login(iLoginView.getUsername(), iLoginView.getPassword(), object : OnLoginListener {
 
             override fun loginSuccess(user: UserBean) {
                 handler.post {
                     iLoginView.hideLoading()
                     iLoginView.loginSuccess(user)
+                    handler.removeCallbacksAndMessages(null)
                 }
             }
 
@@ -38,6 +38,7 @@ class LoginPresenter(private val context: Context, private val iLoginView: ILogi
                 handler.post {
                     iLoginView.hideLoading()
                     iLoginView.loginFailure()
+                    handler.removeCallbacksAndMessages(null)
                 }
             }
         })

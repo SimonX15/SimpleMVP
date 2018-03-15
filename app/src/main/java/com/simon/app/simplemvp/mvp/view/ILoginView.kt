@@ -3,7 +3,7 @@ package com.simon.app.simplemvp.mvp.view
 import com.simon.app.simplemvp.mvp.bean.UserBean
 
 /**
- * desc:
+ * desc: Login View
  *
  * auther: xw
  *

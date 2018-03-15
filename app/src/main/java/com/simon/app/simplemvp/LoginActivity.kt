@@ -1,7 +1,6 @@
 package com.simon.app.simplemvp
 
 import android.os.Bundle
-import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
@@ -12,13 +11,13 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), ILoginView {
 
-    var loginPresenter: LoginPresenter? = null
+    private var loginPresenter: LoginPresenter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        loginPresenter = LoginPresenter(this@LoginActivity, this)
+        loginPresenter = LoginPresenter(this)
 
         btn_login.setOnClickListener {
             tv_error.visibility = View.GONE

@@ -3,7 +3,7 @@ package com.simon.app.simplemvp.mvp.model
 import com.simon.app.simplemvp.mvp.bean.UserBean
 
 /**
- * desc:
+ * desc: 登录 回调
  *
  * auther: xw
  *
